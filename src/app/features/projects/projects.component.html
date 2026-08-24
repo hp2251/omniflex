@@ -1,0 +1,48 @@
+<section class="showcase-container animate-fade-in">
+  <div class="showcase-header">
+    <h2>Selected Works</h2>
+    <p>A collection of front-end applications, architecture, and automation.</p>
+  </div>
+
+  <div class="project-grid">
+    <!-- Unwraps the Observable -->
+    @if (projects$ | async; as projects) {
+      
+      <!-- Loops through the projects -->
+      @for (project of projects; track project.id) {
+        <div class="project-card">
+          
+          <div class="card-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            
+            <div class="tech-stack">
+              <!-- Loops through the tech stack tags -->
+              @for (tech of project.techStack; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+          
+          <div class="card-actions">
+            @if (project.githubUrl) {
+              <a [href]="project.githubUrl" target="_blank" class="btn-link github-link">
+                GitHub Repository
+              </a>
+            }
+            @if (project.liveUrl) {
+              <a [href]="project.liveUrl" target="_blank" class="btn-link live-link">
+                View Live
+              </a>
+            }
+          </div>
+          
+        </div>
+      }
+      
+    } @else {
+      <!-- Shows while the Observable is loading -->
+      <p style="text-align: center; color: var(--text-secondary);">Loading projects...</p>
+    }
+  </div>
+</section>
