@@ -1,0 +1,109 @@
+.showcase-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+  }
+}
+
+.project-grid {
+  display: grid;
+  /* Automatically creates columns that are at least 320px wide */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-color);
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+
+  .project-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    .tech-tag {
+      background-color: var(--bg-primary);
+      color: var(--accent-color);
+      font-size: 0.85rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      border: 1px solid var(--border-color);
+    }
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background-color: rgba(0, 0, 0, 0.05); /* Slight contrast for the footer */
+    border-top: 1px solid var(--border-color);
+    
+    .btn-link {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 3rem 1.5rem;
+  }
+
+  .skills-container,
+  .showcase-container {
+    padding: 3rem 1.5rem;
+  }
+}

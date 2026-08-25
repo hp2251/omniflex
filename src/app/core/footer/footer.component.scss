@@ -1,0 +1,36 @@
+.footer {
+  padding: 2.5rem 2rem;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  margin-top: auto; 
+
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+
+      a {
+        color: var(--text-secondary);
+        transition: color 0.2s ease, transform 0.2s ease;
+        display: inline-block; /* Required for the transform animation to work */
+        
+        &:hover {
+          color: var(--accent-color);
+          transform: translateY(-4px);
+        }
+      }
+    }
+  }
+}
