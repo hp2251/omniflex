@@ -52,3 +52,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+
+    .nav-links {
+      gap: 1rem;
+    }
+  }
+}

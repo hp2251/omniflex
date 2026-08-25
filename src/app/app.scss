@@ -1,0 +1,13 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Takes up the full height of the viewport */
+}
+
+.main-content {
+  flex: 1;
+  /* Pushes the footer down */
+  display: flex;
+  flex-direction: column;
+}
