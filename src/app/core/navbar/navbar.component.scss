@@ -62,3 +62,86 @@
     }
   }
 }
+/* =========================================
+   Mobile Hamburger & Responsive Menu 
+   ========================================= */
+
+/* Default state: Hide the hamburger on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  /* Keeps it above the dropdown menu */
+
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+}
+
+/* Media query for screens smaller than an iPad */
+@media (max-width: 768px) {
+
+  /* Show the hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animate the hamburger into an "X" when active */
+  .hamburger.active {
+    .bar:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .bar:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+  }
+
+  /* Overhaul the nav-links for mobile */
+  .navbar .nav-links {
+    position: absolute;
+    top: 100%;
+    /* Pushes it exactly below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    /* Hidden state */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+
+    /* Visible state triggered by Angular [class.open] */
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Adjust link spacing for the vertical list */
+    a {
+      font-size: 1.25rem;
+      padding: 0.5rem 0;
+    }
+  }
+}
