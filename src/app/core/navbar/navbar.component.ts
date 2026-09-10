@@ -12,4 +12,14 @@ import { ThemeService } from '../../services/theme.service';
 export class NavbarComponent {
   // Using modern inject() function
   themeService = inject(ThemeService);
+
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

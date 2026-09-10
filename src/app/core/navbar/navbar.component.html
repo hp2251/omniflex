@@ -1,12 +1,21 @@
 <nav class="navbar">
   <div class="nav-brand">
-    <a routerLink="/">Omniflex</a>
+    <!-- Close menu if they click the logo to go home -->
+    <a routerLink="/home" (click)="closeMenu()">Omniflex</a>
   </div>
-  <div class="nav-links">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a routerLink="/projects" routerLinkActive="active">Projects</a>
-    <button class="theme-toggle" (click)="themeService.toggleTheme()" aria-label="Toggle light and dark mode">
-      <!-- Simple SVG icon for toggling -->
+  <!-- The Hamburger Icon (hidden on desktop) -->
+  <button class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  
+  <!-- The Links Container -->
+  <div class="nav-links" [class.open]="isMenuOpen">
+    <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a>
+    <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">Projects</a>
+  
+    <button class="theme-toggle" (click)="themeService.toggleTheme(); closeMenu()" aria-label="Toggle theme">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
